@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* SAP-inspired palette */
+    --primary: 212 90% 56%; /* #0A6ED1 */
+    --primary-dark: 212 93% 31%; /* #0854A0 */
+    --primary-light: 208 93% 95%; /* #EAF3FC */
+    --primary-foreground: 0 0% 100%;
+
+    --success: 133 72% 33%; /* #107E3E */
+    --warning: 27 80% 45%; /* #E9730C */
+    --error: 0 73% 37%; /* #BB0000 */
+
+    /* Neutral palette */
+    --background: 210 13% 96%; /* #F5F6F7 */
+    --foreground: 213 10% 20%; /* #32363A */
+    --border: 210 11% 85%; /* #D9D9D9 */
+    --input: 210 10% 95%;
+    --ring: 212 90% 56%;
+
+    --secondary: 0 0% 100%; /* White */
+    --secondary-foreground: 213 10% 20%;
+
+    --muted: 210 11% 75%;
+    --muted-foreground: 213 10% 35%;
+
+    --accent: 212 90% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 73% 37%;
+    --destructive-foreground: 0 0% 100%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 10% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 10% 20%;
+
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply min-h-screen bg-background;
+  }
+
+  .card-elevated {
+    @apply bg-card border border-border rounded-lg shadow-sm;
+  }
+
+  .table-cell {
+    @apply px-md py-sm text-sm;
+  }
+
+  .button-primary {
+    @apply bg-primary text-white px-lg py-sm rounded-md font-medium hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .button-secondary {
+    @apply bg-muted text-foreground px-lg py-sm rounded-md font-medium hover:bg-muted/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .button-danger {
+    @apply bg-destructive text-white px-lg py-sm rounded-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full px-md py-sm border border-border rounded-md bg-input placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+  }
+
+  .badge-status {
+    @apply inline-flex items-center px-sm py-xs rounded-full text-xs font-medium;
+  }
+
+
+  .badge-warning {
+    @apply badge-status bg-warning/10 text-warning;
+  }
+
+  .badge-success {
+    @apply badge-status bg-success/10 text-success;
+  }
+
+  .badge-error {
+    @apply badge-status bg-error/10 text-error;
+  }
+
+  .badge-pending {
+    @apply badge-status bg-primary/10 text-primary;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded hover:bg-muted;
+}
